@@ -5,14 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Background } from '~/components';
 import {
   Container,
+  Separator,
   Title,
   Form,
   FormInput,
   SubmitButton,
-  Separator,
+  LogoutButton,
 } from './styles';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
+import { signOut } from '~/store/modules/auth/actions';
 
 export default function Profile() {
   const emailRef = useRef();
@@ -46,6 +48,10 @@ export default function Profile() {
         confirmPassword,
       })
     );
+  }
+
+  function handleLogout() {
+    dispatch(signOut());
   }
 
   return (
@@ -112,6 +118,7 @@ export default function Profile() {
           <SubmitButton onPress={handleSubmit} loading={loading}>
             Atualizar perfil
           </SubmitButton>
+          <LogoutButton onPress={handleLogout}>Sair do GoBarber</LogoutButton>
         </Form>
       </Container>
     </Background>
