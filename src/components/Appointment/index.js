@@ -47,5 +47,11 @@ export default function Appointment({ onCancel, data }) {
 
 Appointment.propTypes = {
   onCancel: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    cancelable: PropTypes.bool,
+    provider: PropTypes.object,
+    past: PropTypes.bool,
+    date: PropTypes.string,
+    canceled_at: PropTypes.string,
+  }).isRequired,
 };
