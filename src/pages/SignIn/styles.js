@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { Input, Button } from '~/components';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
-  enable: Platform.OS === 'ios',
+  enabled: Platform.OS === 'ios',
   behavior: 'padding',
 })`
   flex: 1;
